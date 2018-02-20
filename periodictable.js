@@ -694,7 +694,9 @@ function getElement(searchTerm){
 		const isNumber=new RegExp("[0-9]+")
 		if(isNumber.test(searchTerm)){
 			mole=parseInt(isNumber.exec(searchTerm)[0])
-			searchTerm=searchTerm.replace(mole,"")
+			if(mole!=searchTerm){
+				searchTerm=searchTerm.replace(mole,"")
+			}
 		}
 		if(searchTerm.length<=2&&elements[i].symbol.toLowerCase()==searchTerm||searchTerm.length>2&&elements[i].name.toLowerCase().indexOf(searchTerm)!=-1||elements[i].name_cn==searchTerm||i+1==searchTerm||Math.round(elements[i].mass)==Math.round(searchTerm)){
 			return{
