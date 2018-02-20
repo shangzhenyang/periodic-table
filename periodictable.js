@@ -621,7 +621,7 @@ function createList(ul){
 	}
 }
 function getElement(searchTerm){
-	searchTerm=searchTerm.toLowerCase()
+	searchTerm=searchTerm.toLowerCase().trim()
 	let mole=1
 	for(let i=0;i<elements.length;i++){
 		if(searchTerm.substr(0,4)=="mono"){
