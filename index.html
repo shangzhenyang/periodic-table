@@ -24,7 +24,8 @@
 	<body>
 		<h1>Demo of "periodic-table"</h1>
 		<p>
-			Create a visible periodic table: <a href="javascript:createList()">createList()</a>
+			Create a visible periodic table: <a href="javascript:createList(document.getElementById('elements'))">createList(document.getElementById("elements"))</a><br>
+			The class list of each element contains "periodic-table".
 		</p>
 		<p>
 			Get the information of the element: <a href="javascript:getElementDemo()">getElement("<input id="getElement" type="text" value="oxygen" onclick="this.value=''" onkeydown="if(event.keyCode==13){getElementDemo()}">")</a><br>
@@ -34,6 +35,7 @@
 			Get the information of the compound: <a href="javascript:getCompoundDemo()">getCompound("<input id="getCompound" type="text" value="carbon dioxide" onclick="this.value=''" onkeydown="if(event.keyCode==13){getCompoundDemo()}">")</a><br>
 			You can put any of these in the input box above: "carbon dioxide" "CO2" "c o2" "二氧化碳"
 		</p>
+		<ul id="elements"></ul>
 		<script type="text/javascript">
 			function elementClicked(element){
 				alert("You clicked "+element.name+".\n"+JSON.stringify(element)+"\n\nThe function elementClicked(element) determines what will happen after clicking an element.")
