@@ -1,3 +1,4 @@
+/*Code written by Shangzhen Yang*/
 const elements=[{
 	"symbol":"H",
 	"name":"Hydrogen",
@@ -589,6 +590,36 @@ const elements=[{
 	"name_cn":"Oganesson",
 	"mass":294
 }]
+function createList(ul){
+	if(ul==null){
+		const existingUl=document.getElementsByTagName("ul")
+		if(existingUl.length>0){
+			ul=existingUl[0]
+		}else{
+			const newUl=document.createElement("ul")
+			document.body.appendChild(newUl)
+			ul=newUl
+		}
+	}
+	for(let i=0;i<elements.length;i++){
+		const newLi=document.createElement("li")
+		newLi.setAttribute("class","periodic-table")
+		newLi.id=elements[i].name
+		if(navigator.language.indexOf("zh")!=-1){
+			newLi.innerText="原子序数："+(i+1)+"\n符号："+elements[i].symbol+"\n名称："+elements[i].name_cn+"\n相对原子质量："+elements[i].mass
+		}else{
+			newLi.innerText="Atomic number: "+(i+1)+"\nSymbol: "+elements[i].symbol+"\nName: "+elements[i].name+"\nAtomic mass: "+elements[i].mass
+		}
+		newLi.onclick=function(){
+			try{
+				elementClicked(getElement(elements[i].name))
+			}catch(e){
+				console.log(e.message)
+			}
+		}
+		ul.appendChild(newLi)
+	}
+}
 function getElement(searchTerm){
 	searchTerm=searchTerm.toLowerCase()
 	let mole=1
