@@ -693,8 +693,9 @@ function getElement(searchTerm){
 		}
 		const isNumber=new RegExp("[0-9]+")
 		if(isNumber.test(searchTerm)){
-			mole=parseInt(isNumber.exec(searchTerm)[0])
-			if(mole!=searchTerm){
+			const num=parseInt(isNumber.exec(searchTerm)[0])
+			if(num!=searchTerm){
+				mole=num
 				searchTerm=searchTerm.replace(mole,"")
 			}
 		}
