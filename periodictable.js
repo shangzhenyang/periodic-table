@@ -705,6 +705,7 @@ function getElement(searchTerm){
 				"mole":mole,
 				"name":elements[i].name,
 				"name_cn":elements[i].name_cn,
+				"number":i+1,
 				"symbol":elements[i].symbol
 			}
 		}
@@ -740,28 +741,34 @@ function getCompound(searchTerm){
 		}else if(searchTerm.indexOf("化")!=-1){
 			const characters=searchTerm.split("化")
 			result=getElement(characters[1])
-			record.push([{
-				"symbol":result.symbol,
-				"mole":result.mole,
-				"mass":result.mass
-			}])
+			if(result){
+				record.push([{
+					"symbol":result.symbol,
+					"mole":result.mole,
+					"mass":result.mass
+				}])
+			}
 			mole=1
 			result=getElement(characters[0])
-			record.push([{
-				"symbol":result.symbol,
-				"mole":result.mole,
-				"mass":result.mass
-			}])
+			if(result){
+				record.push([{
+					"symbol":result.symbol,
+					"mole":result.mole,
+					"mass":result.mass
+				}])
+			}
 		}else{
 			return getElement(searchTerm)
 		}
 		let mass=0,symbol=""
 		for(let i=0;i<record.length;i++){
-			symbol+=record[i][0].symbol
-			if(record[i][0].mole>1){
-				symbol+=record[i][0].mole
+			if(record[i]){
+				symbol+=record[i][0].symbol
+				if(record[i][0].mole>1){
+					symbol+=record[i][0].mole
+				}
+				mass+=record[i][0].mass
 			}
-			mass+=record[i][0].mass
 		}
 		return{
 			"mass":mass,
