@@ -610,7 +610,7 @@ function createList(ul){
 		}else{
 			newLi.innerText="Atomic number: "+(i+1)+"\nSymbol: "+elements[i].symbol+"\nName: "+elements[i].name+"\nAtomic mass: "+elements[i].mass
 		}
-		newLi.onclick=function(){
+		newLi.onclick=()=>{
 			try{
 				elementClicked(getElement(elements[i].name))
 			}catch(e){
