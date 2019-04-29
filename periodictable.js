@@ -1,618 +1,738 @@
-/*Code written by Shangzhen Yang*/
-const elements=[{
+/* Code written by Shangzhen Yang https://github.com/shangzhenyang/periodic-table */
+var elements=[{
 	"symbol":"H",
 	"name":"Hydrogen",
-	"name_cn":"氢",
+	"name_chs":"氢",
+	"name_cht":"氫",
 	"mass":1.008
 },{
 	"symbol":"He",
 	"name":"Helium",
-	"name_cn":"氦",
+	"name_chs":"氦",
+	"name_cht":"氦",
 	"mass":4.003
 },{
 	"symbol":"Li",
 	"name":"Lithium",
-	"name_cn":"锂",
+	"name_chs":"锂",
+	"name_cht":"鋰",
 	"mass":6.941
 },{
 	"symbol":"Be",
 	"name":"Beryllium",
-	"name_cn":"铍",
+	"name_chs":"铍",
+	"name_cht":"鈹",
 	"mass":9.012
 },{
 	"symbol":"B",
 	"name":"Boron",
-	"name_cn":"硼",
+	"name_chs":"硼",
+	"name_cht":"硼",
 	"mass":10.811
 },{
 	"symbol":"C",
 	"name":"Carbon",
-	"name_cn":"碳",
+	"name_chs":"碳",
+	"name_cht":"碳",
 	"mass":12.011
 },{
 	"symbol":"N",
 	"name":"Nitrogen",
-	"name_cn":"氮",
+	"name_chs":"氮",
+	"name_cht":"氮",
 	"mass":14.007
 },{
 	"symbol":"O",
 	"name":"Oxygen",
-	"name_cn":"氧",
+	"name_chs":"氧",
+	"name_cht":"氧",
 	"mass":15.999
 },{
 	"symbol":"F",
 	"name":"Fluorine",
-	"name_cn":"氟",
+	"name_chs":"氟",
+	"name_cht":"氟",
 	"mass":18.998
 },{
 	"symbol":"Ne",
 	"name":"Neon",
-	"name_cn":"氖",
+	"name_chs":"氖",
+	"name_cht":"氖",
 	"mass":20.180
 },{
 	"symbol":"Na",
 	"name":"Sodium",
-	"name_cn":"钠",
+	"name_chs":"钠",
+	"name_cht":"鈉",
 	"mass":22.990
 },{
 	"symbol":"Mg",
 	"name":"Magnesium",
-	"name_cn":"镁",
+	"name_chs":"镁",
+	"name_cht":"鎂",
 	"mass":24.305
 },{
 	"symbol":"Al",
 	"name":"Aluminum",
-	"name_cn":"铝",
+	"name_chs":"铝",
+	"name_cht":"鋁",
 	"mass":26.982
 },{
 	"symbol":"Si",
 	"name":"Silicon",
-	"name_cn":"硅",
+	"name_chs":"硅",
+	"name_cht":"矽",
 	"mass":28.086
 },{
 	"symbol":"P",
 	"name":"Phosphorus",
-	"name_cn":"磷",
+	"name_chs":"磷",
+	"name_cht":"磷",
 	"mass":30.974
 },{
 	"symbol":"S",
 	"name":"Sulfur",
-	"name_cn":"硫",
+	"name_chs":"硫",
+	"name_cht":"硫",
 	"mass":32.066
 },{
 	"symbol":"Cl",
 	"name":"Chlorine",
-	"name_cn":"氯",
+	"name_chs":"氯",
+	"name_cht":"氯",
 	"mass":35.453
 },{
 	"symbol":"Ar",
 	"name":"Argon",
-	"name_cn":"氩",
+	"name_chs":"氩",
+	"name_cht":"氬",
 	"mass":39.948
 },{
 	"symbol":"K",
 	"name":"Potassium",
-	"name_cn":"钾",
+	"name_chs":"钾",
+	"name_cht":"鉀",
 	"mass":39.098
 },{
 	"symbol":"Ca",
 	"name":"Calcium",
-	"name_cn":"钙",
+	"name_chs":"钙",
+	"name_cht":"鈣",
 	"mass":40.078
 },{
 	"symbol":"Sc",
 	"name":"Scandium",
-	"name_cn":"钪",
+	"name_chs":"钪",
+	"name_cht":"鈧",
 	"mass":44.956
 },{
 	"symbol":"Ti",
 	"name":"Titanium",
-	"name_cn":"钛",
+	"name_chs":"钛",
+	"name_cht":"鈦",
 	"mass":47.867
 },{
 	"symbol":"V",
 	"name":"Vanadium",
-	"name_cn":"钒",
+	"name_chs":"钒",
+	"name_cht":"釩",
 	"mass":50.942
 },{
 	"symbol":"Cr",
 	"name":"Chromium",
-	"name_cn":"铬",
+	"name_chs":"铬",
+	"name_cht":"鉻",
 	"mass":51.996
 },{
 	"symbol":"Mn",
 	"name":"Manganese",
-	"name_cn":"锰",
+	"name_chs":"锰",
+	"name_cht":"錳",
 	"mass":54.938
 },{
 	"symbol":"Fe",
 	"name":"Iron",
-	"name_cn":"铁",
+	"name_chs":"铁",
+	"name_cht":"鐵",
 	"mass":55.845
 },{
 	"symbol":"Co",
 	"name":"Cobalt",
-	"name_cn":"钴",
+	"name_chs":"钴",
+	"name_cht":"鈷",
 	"mass":58.933
 },{
 	"symbol":"Ni",
 	"name":"Nickel",
-	"name_cn":"镍",
+	"name_chs":"镍",
+	"name_cht":"鎳",
 	"mass":58.693
 },{
 	"symbol":"Cu",
 	"name":"Copper",
-	"name_cn":"铜",
+	"name_chs":"铜",
+	"name_cht":"銅",
 	"mass":63.546
 },{
 	"symbol":"Zn",
 	"name":"Zinc",
-	"name_cn":"锌",
+	"name_chs":"锌",
+	"name_cht":"鋅",
 	"mass":65.38
 },{
 	"symbol":"Ga",
 	"name":"Gallium",
-	"name_cn":"镓",
+	"name_chs":"镓",
+	"name_cht":"鎵",
 	"mass":69.723
 },{
 	"symbol":"Ge",
 	"name":"Germanium",
-	"name_cn":"锗",
+	"name_chs":"锗",
+	"name_cht":"鍺",
 	"mass":72.630
 },{
 	"symbol":"As",
 	"name":"Arsenic",
-	"name_cn":"砷",
+	"name_chs":"砷",
+	"name_cht":"砷",
 	"mass":74.922
 },{
 	"symbol":"Se",
 	"name":"Selenium",
-	"name_cn":"硒",
+	"name_chs":"硒",
+	"name_cht":"硒",
 	"mass":78.971
 },{
 	"symbol":"Br",
 	"name":"Bromine",
-	"name_cn":"溴",
+	"name_chs":"溴",
+	"name_cht":"溴",
 	"mass":79.904
 },{
 	"symbol":"Kr",
 	"name":"Krypton",
-	"name_cn":"氪",
+	"name_chs":"氪",
+	"name_cht":"氪",
 	"mass":83.798
 },{
 	"symbol":"Rb",
 	"name":"Rubidium",
-	"name_cn":"铷",
+	"name_chs":"铷",
+	"name_cht":"銣",
 	"mass":85.468
 },{
 	"symbol":"Sr",
 	"name":"Strontium",
-	"name_cn":"锶",
+	"name_chs":"锶",
+	"name_cht":"鍶",
 	"mass":87.62
 },{
 	"symbol":"Y",
 	"name":"Yttrium",
-	"name_cn":"钇",
+	"name_chs":"钇",
+	"name_cht":"釔",
 	"mass":88.906
 },{
 	"symbol":"Zr",
 	"name":"Zirconium",
-	"name_cn":"锆",
+	"name_chs":"锆",
+	"name_cht":"鋯",
 	"mass":91.224
 },{
 	"symbol":"Nb",
 	"name":"Niobium",
-	"name_cn":"铌",
+	"name_chs":"铌",
+	"name_cht":"鈮",
 	"mass":92.906
 },{
 	"symbol":"Mo",
 	"name":"Molybdenum",
-	"name_cn":"钼",
+	"name_chs":"钼",
+	"name_cht":"鉬",
 	"mass":95.95
 },{
 	"symbol":"Tc",
 	"name":"Technetium",
-	"name_cn":"锝",
+	"name_chs":"锝",
+	"name_cht":"鎝",
 	"mass":98
 },{
 	"symbol":"Ru",
 	"name":"Ruthenium",
-	"name_cn":"钌",
+	"name_chs":"钌",
+	"name_cht":"釕",
 	"mass":101.07
 },{
 	"symbol":"Rh",
 	"name":"Rhodium",
-	"name_cn":"铑",
+	"name_chs":"铑",
+	"name_cht":"銠",
 	"mass":102.906
 },{
 	"symbol":"Pd",
 	"name":"Palladium",
-	"name_cn":"钯",
+	"name_chs":"钯",
+	"name_cht":"鈀",
 	"mass":106.42
 },{
 	"symbol":"Ag",
 	"name":"Silver",
-	"name_cn":"银",
+	"name_chs":"银",
+	"name_cht":"銀",
 	"mass":107.868
 },{
 	"symbol":"Cd",
 	"name":"Cadmium",
-	"name_cn":"镉",
+	"name_chs":"镉",
+	"name_cht":"鎘",
 	"mass":112.411
 },{
 	"symbol":"In",
 	"name":"Indium",
-	"name_cn":"铟",
+	"name_chs":"铟",
+	"name_cht":"銦",
 	"mass":114.818
 },{
 	"symbol":"Sn",
 	"name":"Tin",
-	"name_cn":"锡",
+	"name_chs":"锡",
+	"name_cht":"錫",
 	"mass":118.710
 },{
 	"symbol":"Sb",
 	"name":"Antimony",
-	"name_cn":"锑",
+	"name_chs":"锑",
+	"name_cht":"銻",
 	"mass":121.760
 },{
 	"symbol":"Te",
 	"name":"Tellurium",
-	"name_cn":"碲",
+	"name_chs":"碲",
+	"name_cht":"碲",
 	"mass":127.60
 },{
 	"symbol":"I",
 	"name":"Iodine",
-	"name_cn":"碘",
+	"name_chs":"碘",
+	"name_cht":"碘",
 	"mass":126.904
 },{
 	"symbol":"Xe",
 	"name":"Xenon",
-	"name_cn":"氙",
+	"name_chs":"氙",
+	"name_cht":"氙",
 	"mass":131.29
 },{
 	"symbol":"Cs",
 	"name":"Caesium",
-	"name_cn":"铯",
+	"name_chs":"铯",
+	"name_cht":"銫",
 	"mass":132.905
 },{
 	"symbol":"Ba",
 	"name":"Barium",
-	"name_cn":"钡",
+	"name_chs":"钡",
+	"name_cht":"鋇",
 	"mass":137.327
 },{
 	"symbol":"La",
 	"name":"Lanthanum",
-	"name_cn":"镧",
+	"name_chs":"镧",
+	"name_cht":"鑭",
 	"mass":138.906
 },{
 	"symbol":"Ce",
 	"name":"Cerium",
-	"name_cn":"铈",
+	"name_chs":"铈",
+	"name_cht":"鈰",
 	"mass":140.116
 },{
 	"symbol":"Pr",
 	"name":"Praseodymium",
-	"name_cn":"镨",
+	"name_chs":"镨",
+	"name_cht":"鐠",
 	"mass":140.908
 },{
 	"symbol":"Nd",
 	"name":"Neodymium",
-	"name_cn":"钕",
+	"name_chs":"钕",
+	"name_cht":"釹",
 	"mass":144.24
 },{
 	"symbol":"Pm",
 	"name":"Promethium",
-	"name_cn":"钷",
+	"name_chs":"钷",
+	"name_cht":"鉕",
 	"mass":145
 },{
 	"symbol":"Sm",
 	"name":"Samarium",
-	"name_cn":"钐",
+	"name_chs":"钐",
+	"name_cht":"釤",
 	"mass":150.36
 },{
 	"symbol":"Eu",
 	"name":"Europium",
-	"name_cn":"铕",
+	"name_chs":"铕",
+	"name_cht":"銪",
 	"mass":151.964
 },{
 	"symbol":"Gd",
 	"name":"Gadolinium",
-	"name_cn":"钆",
+	"name_chs":"钆",
+	"name_cht":"釓",
 	"mass":157.25
 },{
 	"symbol":"Tb",
 	"name":"Terbium",
-	"name_cn":"铽",
+	"name_chs":"铽",
+	"name_cht":"鋱",
 	"mass":158.925
 },{
 	"symbol":"Dy",
 	"name":"Dysprosium",
-	"name_cn":"镝",
+	"name_chs":"镝",
+	"name_cht":"鏑",
 	"mass":162.50
 },{
 	"symbol":"Ho",
 	"name":"Holmium",
-	"name_cn":"钬",
+	"name_chs":"钬",
+	"name_cht":"鈥",
 	"mass":164.930
 },{
 	"symbol":"Er",
 	"name":"Erbium",
-	"name_cn":"铒",
+	"name_chs":"铒",
+	"name_cht":"鉺",
 	"mass":167.26
 },{
 	"symbol":"Tm",
 	"name":"Thulium",
-	"name_cn":"铥",
+	"name_chs":"铥",
+	"name_cht":"銩",
 	"mass":168.934
 },{
 	"symbol":"Yb",
 	"name":"Ytterbium",
-	"name_cn":"镱",
+	"name_chs":"镱",
+	"name_cht":"鐿",
 	"mass":173.05
 },{
 	"symbol":"Lu",
 	"name":"Lutetium",
-	"name_cn":"镥",
+	"name_chs":"镥",
+	"name_cht":"鎦",
 	"mass":174.967
 },{
 	"symbol":"Hf",
 	"name":"Hafnium",
-	"name_cn":"铪",
+	"name_chs":"铪",
+	"name_cht":"鉿",
 	"mass":178.49
 },{
 	"symbol":"Ta",
 	"name":"Tantalum",
-	"name_cn":"钽",
+	"name_chs":"钽",
+	"name_cht":"鉭",
 	"mass":180.948
 },{
 	"symbol":"W",
 	"name":"Tungsten",
-	"name_cn":"钨",
+	"name_chs":"钨",
+	"name_cht":"鎢",
 	"mass":183.84
 },{
 	"symbol":"Re",
 	"name":"Rhenium",
-	"name_cn":"铼",
+	"name_chs":"铼",
+	"name_cht":"錸",
 	"mass":186.207
 },{
 	"symbol":"Os",
 	"name":"Osmium",
-	"name_cn":"锇",
+	"name_chs":"锇",
+	"name_cht":"鋨",
 	"mass":190.23
 },{
 	"symbol":"Ir",
 	"name":"Iridium",
-	"name_cn":"铱",
+	"name_chs":"铱",
+	"name_cht":"銥",
 	"mass":192.217
 },{
 	"symbol":"Pt",
 	"name":"Platinum",
-	"name_cn":"铂",
+	"name_chs":"铂",
+	"name_cht":"鉑",
 	"mass":195.078
 },{
 	"symbol":"Au",
 	"name":"Gold",
-	"name_cn":"金",
+	"name_chs":"金",
+	"name_cht":"金",
 	"mass":196.967
 },{
 	"symbol":"Hg",
 	"name":"Mercury",
-	"name_cn":"汞",
+	"name_chs":"汞",
+	"name_cht":"汞",
 	"mass":200.59
 },{
 	"symbol":"Tl",
 	"name":"Thallium",
-	"name_cn":"铊",
+	"name_chs":"铊",
+	"name_cht":"鉈",
 	"mass":204.383
 },{
 	"symbol":"Pb",
 	"name":"Lead",
-	"name_cn":"铅",
+	"name_chs":"铅",
+	"name_cht":"鉛",
 	"mass":207.2
 },{
 	"symbol":"Bi",
 	"name":"Bismuth",
-	"name_cn":"铋",
+	"name_chs":"铋",
+	"name_cht":"鉍",
 	"mass":208.980
 },{
 	"symbol":"Po",
 	"name":"Polonium",
-	"name_cn":"钋",
+	"name_chs":"钋",
+	"name_cht":"釙",
 	"mass":209
 },{
 	"symbol":"At",
 	"name":"Astatine",
-	"name_cn":"砹",
+	"name_chs":"砹",
+	"name_cht":"砈",
 	"mass":210
 },{
 	"symbol":"Rn",
 	"name":"Radon",
-	"name_cn":"氡",
+	"name_chs":"氡",
+	"name_cht":"氡",
 	"mass":222
 },{
 	"symbol":"Fr",
 	"name":"Francium",
-	"name_cn":"钫",
+	"name_chs":"钫",
+	"name_cht":"鍅",
 	"mass":223
 },{
 	"symbol":"Ra",
 	"name":"Radium",
-	"name_cn":"镭",
+	"name_chs":"镭",
+	"name_cht":"鐳",
 	"mass":226
 },{
 	"symbol":"Ac",
 	"name":"Actinium",
-	"name_cn":"锕",
+	"name_chs":"锕",
+	"name_cht":"錒",
 	"mass":227
 },{
 	"symbol":"Th",
 	"name":"Thorium",
-	"name_cn":"钍",
+	"name_chs":"钍",
+	"name_cht":"釷",
 	"mass":232.038
 },{
 	"symbol":"Pa",
 	"name":"Protactinium",
-	"name_cn":"镤",
+	"name_chs":"镤",
+	"name_cht":"鏷",
 	"mass":231.036
 },{
 	"symbol":"U",
 	"name":"Uranium",
-	"name_cn":"铀",
+	"name_chs":"铀",
+	"name_cht":"鈾",
 	"mass":238.029
 },{
 	"symbol":"Np",
 	"name":"Neptunium",
-	"name_cn":"镎",
+	"name_chs":"镎",
+	"name_cht":"錼",
 	"mass":237
 },{
 	"symbol":"Pu",
 	"name":"Plutonium",
-	"name_cn":"钚",
+	"name_chs":"钚",
+	"name_cht":"鈽",
 	"mass":244
 },{
 	"symbol":"Am",
 	"name":"Americium",
-	"name_cn":"镅",
+	"name_chs":"镅",
+	"name_cht":"鋂",
 	"mass":243
 },{
 	"symbol":"Cm",
 	"name":"Curium",
-	"name_cn":"锔",
+	"name_chs":"锔",
+	"name_cht":"鋦",
 	"mass":247
 },{
 	"symbol":"Bk",
 	"name":"Berkelium",
-	"name_cn":"锫",
+	"name_chs":"锫",
+	"name_cht":"鉳",
 	"mass":247
 },{
 	"symbol":"Cf",
 	"name":"Californium",
-	"name_cn":"锎",
+	"name_chs":"锎",
+	"name_cht":"鉲",
 	"mass":251
 },{
 	"symbol":"Es",
 	"name":"Einsteinium",
-	"name_cn":"锿",
+	"name_chs":"锿",
+	"name_cht":"鑀",
 	"mass":252
 },{
 	"symbol":"Fm",
 	"name":"Fermium",
-	"name_cn":"镄",
+	"name_chs":"镄",
+	"name_cht":"鐨",
 	"mass":257
 },{
 	"symbol":"Md",
 	"name":"Mendelevium",
-	"name_cn":"钔",
+	"name_chs":"钔",
+	"name_cht":"鍆",
 	"mass":258
 },{
 	"symbol":"No",
 	"name":"Nobelium",
-	"name_cn":"锘",
+	"name_chs":"锘",
+	"name_cht":"鍩",
 	"mass":259
 },{
 	"symbol":"Lr",
 	"name":"Lawrencium",
-	"name_cn":"铹",
+	"name_chs":"铹",
+	"name_cht":"鐒",
 	"mass":266
 },{
 	"symbol":"Rf",
 	"name":"Rutherfordium",
-	"name_cn":"𬬻",
+	"name_chs":"𬬻",
+	"name_cht":"鑪",
 	"mass":267
 },{
 	"symbol":"Db",
 	"name":"Dubnium",
-	"name_cn":"𬭊",
+	"name_chs":"𬭊",
+	"name_cht":"𨧀",
 	"mass":268
 },{
 	"symbol":"Sg",
 	"name":"Seaborgium",
-	"name_cn":"𬭳",
+	"name_chs":"𬭳",
+	"name_cht":"𨭎",
 	"mass":269
 },{
 	"symbol":"Bh",
 	"name":"Bohrium",
-	"name_cn":"𬭛",
+	"name_chs":"𬭛",
+	"name_cht":"𨨏",
 	"mass":270
 },{
 	"symbol":"Hs",
 	"name":"Hassium",
-	"name_cn":"𬭶",
+	"name_chs":"𬭶",
+	"name_cht":"𨭆",
 	"mass":277
 },{
 	"symbol":"Mt",
 	"name":"Meitnerium",
-	"name_cn":"鿏",
+	"name_chs":"鿏",
+	"name_cht":"䥑",
 	"mass":278
 },{
 	"symbol":"Ds",
 	"name":"Darmstadtium",
-	"name_cn":"𫟼",
+	"name_chs":"𫟼",
+	"name_cht":"鐽",
 	"mass":281
 },{
 	"symbol":"Rg",
 	"name":"Roentgenium",
-	"name_cn":"𬬭",
+	"name_chs":"𬬭",
+	"name_cht":"錀",
 	"mass":282
 },{
 	"symbol":"Cn",
 	"name":"Copernicium",
-	"name_cn":"鎶",
+	"name_chs":"鎶",
+	"name_cht":"鎶",
 	"mass":285
 },{
 	"symbol":"Nh",
 	"name":"Nihonium",
-	"name_cn":"鉨",
+	"name_chs":"鉨",
+	"name_cht":"鉨",
 	"mass":286
 },{
 	"symbol":"Fl",
 	"name":"Flerovium",
-	"name_cn":"𫓧",
+	"name_chs":"𫓧",
+	"name_cht":"鈇",
 	"mass":289
 },{
 	"symbol":"Mc",
 	"name":"Moscovium",
-	"name_cn":"镆",
+	"name_chs":"镆",
+	"name_cht":"鏌",
 	"mass":290
 },{
 	"symbol":"Lv",
 	"name":"Livermorium",
-	"name_cn":"鉝",
+	"name_chs":"鉝",
+	"name_cht":"鉝",
 	"mass":293
 },{
 	"symbol":"Ts",
 	"name":"Tennessine",
-	"name_cn":"Tennessine",
+	"name_chs":"Tennessine",
+	"name_cht":"Tennessine",
 	"mass":294
 },{
 	"symbol":"Og",
 	"name":"Oganesson",
-	"name_cn":"Oganesson",
+	"name_chs":"Oganesson",
+	"name_cht":"Oganesson",
 	"mass":294
 }]
 function createList(ul){
 	if(ul==null){
-		const existingUl=document.getElementsByTagName("ul")
+		var existingUl=document.getElementsByTagName("ul")
 		if(existingUl.length>0){
 			ul=existingUl[0]
 		}else{
-			const newUl=document.createElement("ul")
+			var newUl=document.createElement("ul")
 			document.body.appendChild(newUl)
 			ul=newUl
 		}
 	}
-	for(let i=0;i<elements.length;i++){
-		const newLi=document.createElement("li")
+	for(var i=0;i<elements.length;i++){
+		var newLi=document.createElement("li")
 		newLi.setAttribute("class","periodic-table")
 		newLi.id=elements[i].name
-		if(navigator.language.indexOf("zh")!=-1){
-			newLi.innerText="原子序数："+(i+1)+"\n符号："+elements[i].symbol+"\n名称："+elements[i].name_cn+"\n相对原子质量："+elements[i].mass
+		if(/zh-cn|zh-hans|zh-hans-cn/i.test(navigator.language)){
+			newLi.innerText="原子序数："+(i+1)+"\n符号："+elements[i].symbol+"\n名称："+elements[i].name_chs+"\n相对原子质量："+elements[i].mass
+		}else if(navigator.language.indexOf("zh")!=-1){
+			newLi.innerText="原子序數："+(i+1)+"\n符號："+elements[i].symbol+"\n名稱："+elements[i].name_cht+"\n相對原子質量："+elements[i].mass
 		}else{
 			newLi.innerText="Atomic number: "+(i+1)+"\nSymbol: "+elements[i].symbol+"\nName: "+elements[i].name+"\nAtomic mass: "+elements[i].mass
 		}
-		newLi.onclick=()=>{
+		newLi.onclick=function(){
 			try{
-				elementClicked(getElement(elements[i].name))
+				elementClicked(getElement(this.id))
 			}catch(e){
 				console.log(e.message)
 			}
@@ -622,8 +742,8 @@ function createList(ul){
 }
 function getElement(searchTerm){
 	searchTerm=searchTerm.toLowerCase().trim()
-	let mole=1
-	for(let i=0;i<elements.length;i++){
+	var mole=1
+	for(var i=0;i<elements.length;i++){
 		if(searchTerm.substr(0,4)=="mono"){
 			mole=1
 			searchTerm=searchTerm.replace("mono","")
@@ -691,20 +811,21 @@ function getElement(searchTerm){
 			mole=10
 			searchTerm=searchTerm.replace("十","")
 		}
-		const isNumber=new RegExp("[0-9]+")
+		var isNumber=new RegExp("[0-9]+")
 		if(isNumber.test(searchTerm)){
-			const num=parseInt(isNumber.exec(searchTerm)[0])
+			var num=parseInt(isNumber.exec(searchTerm)[0])
 			if(num!=searchTerm){
 				mole=num
 				searchTerm=searchTerm.replace(mole,"")
 			}
 		}
-		if(searchTerm.length<=2&&elements[i].symbol.toLowerCase()==searchTerm||searchTerm.length>2&&elements[i].name.toLowerCase().indexOf(searchTerm)!=-1||elements[i].name_cn==searchTerm||i+1==searchTerm||Math.round(elements[i].mass)==Math.round(searchTerm)){
+		if(searchTerm.length<=2&&elements[i].symbol.toLowerCase()==searchTerm||searchTerm.length>2&&elements[i].name.toLowerCase().indexOf(searchTerm)!=-1||elements[i].name_chs==searchTerm||elements[i].name_cht==searchTerm||i+1==searchTerm||Math.round(elements[i].mass)==Math.round(searchTerm)){
 			return{
 				"mass":elements[i].mass*mole,
 				"mole":mole,
 				"name":elements[i].name,
-				"name_cn":elements[i].name_cn,
+				"name_chs":elements[i].name_chs,
+				"name_cht":elements[i].name_cht,
 				"number":i+1,
 				"symbol":elements[i].symbol
 			}
@@ -713,16 +834,16 @@ function getElement(searchTerm){
 }
 function getCompound(searchTerm){
 	searchTerm=searchTerm.trim()
-	let mole=1,record=new Array()
+	var mole=1,record=new Array()
 	if(searchTerm!=""){
-		const isUpperCase=new RegExp("[A-Z]+")
+		var isUpperCase=new RegExp("[A-Z]+")
 		if(searchTerm.indexOf(" ")!=-1||isUpperCase.test(searchTerm)){
-			const letters=searchTerm.split("")
-			let tempRecord=new Array()
+			var letters=searchTerm.split("")
+			var tempRecord=new Array()
 			searchTerm=""
-			for(let i=0;i<letters.length;i++){
+			for(var i=0;i<letters.length;i++){
 				searchTerm+=letters[i]
-				const result=getElement(searchTerm.toLowerCase())
+				var result=getElement(searchTerm.toLowerCase())
 				if(result){
 					tempRecord.push([{
 						"symbol":result.symbol,
@@ -739,7 +860,7 @@ function getCompound(searchTerm){
 			}
 			record.push(tempRecord[tempRecord.length-1])
 		}else if(searchTerm.indexOf("化")!=-1){
-			const characters=searchTerm.split("化")
+			var characters=searchTerm.split("化")
 			result=getElement(characters[1])
 			if(result){
 				record.push([{
@@ -760,8 +881,8 @@ function getCompound(searchTerm){
 		}else{
 			return getElement(searchTerm)
 		}
-		let mass=0,symbol=""
-		for(let i=0;i<record.length;i++){
+		var mass=0,symbol=""
+		for(var i=0;i<record.length;i++){
 			if(record[i]){
 				symbol+=record[i][0].symbol
 				if(record[i][0].mole>1){

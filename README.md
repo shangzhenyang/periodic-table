@@ -10,7 +10,7 @@ Add this line to your HTML file to enable periodic-table:
 
 把这行代码加到您的 HTML 文件中即可启用 periodic-table：
 
-    <script src="https://shangzhenyang.github.io/periodic-table/periodictable.js"></script>
+    <script src="https://shangzhenyang.github.io/periodic-table/periodictable.min.js"></script>
 
 ---
 

