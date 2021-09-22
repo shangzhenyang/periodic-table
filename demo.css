@@ -1,26 +1,81 @@
-body{
-	font-family:"Helvetica Neue",Helvetica,sans-serif,"Microsoft Yahei";
-	font-size:15px;
-	line-height:25px;
-	padding:15px;
-	word-break:break-all;
+body {
+	font-family: sans-serif;
+	font-size: 15px;
+	line-height: 1.67;
+	margin: 25px;
+	word-break: break-all;
 }
-a{
-	text-decoration-line:none;
+a {
+	color: blue;
+	cursor: pointer;
+	text-decoration: none;
+	transition: opacity .25s;
 }
-h1{
-	font-size:25px;
-	line-height:35px;
+a:active {
+	opacity: .5;
 }
-.periodic-table{
-	border:1px solid gray;
-	border-radius:10px;
-	float:left;
-	margin:10px;
-	overflow:hidden;
-	padding:10px;
-	width:180px;
+h1 {
+	font-size: 25px;
+	line-height: 1.4;
 }
-.periodic-table:hover{
-	background-color:whitesmoke;
+input {
+	background-color: inherit;
+	border: none;
+	border-bottom: 1px solid rgba(0,0,0,.2);
+	border-radius: 0;
+	font-family: inherit;
+	font-size: inherit;
+	outline: none;
+	text-align: center;
+}
+input:focus {
+	border-color: inherit;
+}
+.periodic-table {
+	border: 1px solid rgba(0,0,0,.2);
+	border-radius: 10px;
+	cursor: pointer;
+	display: inline-block;
+	margin: 5px 10px;
+	overflow: hidden;
+	padding: 10px;
+	transition: all .25s;
+	width: 180px;
+}
+.periodic-table:hover {
+	background-color: rgba(0,0,0,.05);
+}
+.periodic-table:active {
+	background-color: rgba(0,0,0,.1);
+}
+.periodic-table.highlight {
+	color: red;
+}
+@media (prefers-color-scheme: dark) {
+	a {
+		color: rgb(86,156,214);
+	}
+	body {
+		background-color: rgb(30,30,30);
+		color: rgba(255,255,255,.8);
+	}
+	input {
+		border-color: rgba(255,255,255,.2);
+		color: rgba(255,255,255,.8);
+	}
+	.periodic-table {
+		border-color: rgba(255,255,255,.2);
+	}
+	.periodic-table:hover {
+		background-color: rgba(255,255,255,.05);
+	}
+	.periodic-table:active {
+		background-color: rgba(255,255,255,.1);
+	}
+	::-webkit-scrollbar {
+		width: 6px;
+	}
+	::-webkit-scrollbar-thumb {
+		background-color: rgba(255,255,255,.25);
+	}
 }
