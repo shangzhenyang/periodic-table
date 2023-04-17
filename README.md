@@ -16,7 +16,7 @@ import {
     getElement,
     getCompound,
     isErrorResult
-} from "periodic-table";
+} from "@shangzhen/periodic-table";
 
 // Get all elements
 console.log(elements);
