@@ -1,6 +1,6 @@
 # periodic-table
 
-It contains the entire periodic table and has handy functions that return the information of elements and compounds. It supports both Node.js and browsers.
+It contains the entire periodic table and has handy functions that return information about elements and compounds. It supports both Node.js and browsers.
 
 ## Installation
 
@@ -33,6 +33,7 @@ getCompound("carbon dioxide"); // by name
 getCompound("CO2"); // by formula with proper case
 getCompound("c o2"); // by formula with space
 getCompound("二氧化碳"); // by Chinese name
+getCompound("Fe2(SO4)3"); // by formula with parentheses
 
 // Check if the result is an error
 isErrorResult(getElement("abc")); // true

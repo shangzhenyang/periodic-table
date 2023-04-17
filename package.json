@@ -1,6 +1,6 @@
 {
     "name": "@shangzhen/periodic-table",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "It contains the entire periodic table and has handy functions that return the information of elements and compounds.",
     "main": "lib/main.js",
     "types": "lib/main.d.ts",
