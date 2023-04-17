@@ -1,11 +1,11 @@
 # periodic-table
 
-It contains the entire periodic table and has handy functions that return the information of elements and compounds.
+It contains the entire periodic table and has handy functions that return the information of elements and compounds. It supports both Node.js and browsers.
 
 ## Installation
 
 ```bash
-npm install periodic-table
+npm install @shangzhen/periodic-table
 ```
 
 ## Usage
