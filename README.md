@@ -35,7 +35,7 @@ getCompound("c o2"); // by formula with space
 getCompound("二氧化碳"); // by Chinese name
 
 // Check if the result is an error
-isErrorResult(getElement("abc"));
+isErrorResult(getElement("abc")); // true
 ```
 
 ## Returned Data
