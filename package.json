@@ -1,0 +1,36 @@
+{
+    "name": "@shangzhen/periodic-table",
+    "version": "2.0.0",
+    "description": "It contains the entire periodic table and has handy functions that return the information of elements and compounds.",
+    "main": "lib/main.js",
+    "types": "lib/main.d.ts",
+    "type": "module",
+    "scripts": {
+        "build": "tsc",
+        "prepare": "npm run build"
+    },
+    "keywords": [
+        "periodic table",
+        "chemistry",
+        "elements",
+        "compounds"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shangzhenyang/periodic-table.git"
+    },
+    "author": "Shangzhen Yang",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/shangzhenyang/periodic-table/issues"
+    },
+    "homepage": "https://github.com/shangzhenyang/periodic-table#readme",
+    "files": [
+        "lib"
+    ],
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.58.0",
+        "@typescript-eslint/parser": "^5.58.0",
+        "eslint": "^8.38.0"
+    }
+}

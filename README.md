@@ -1,19 +1,73 @@
 # periodic-table
 
-It contains the entire periodic table and it has two handy functions that return the information of elements and compounds.
+It contains the entire periodic table and has handy functions that return the information of elements and compounds.
 
-它包含了整个元素周期表和两个好用的函数，这两个函数能返回元素和化合物的信息。
+## Installation
 
----
+```bash
+npm install periodic-table
+```
 
-Add this line to your HTML file to enable periodic-table:
+## Usage
 
-把这行代码加到您的 HTML 文件中即可启用 periodic-table：
+```javascript
+import {
+    elements,
+    getElement,
+    getCompound,
+    isErrorResult
+} from "periodic-table";
 
-    <script src="https://cdn.jsdelivr.net/gh/shangzhenyang/periodic-table/periodictable.min.js"></script>
+// Get all elements
+console.log(elements);
 
----
+// Get element
+getElement("8"); // by atomic number
+getElement("o"); // by symbol
+getElement("oxygen"); // by name
+getElement("氧"); // by Chinese name
+getElement("15.999"); // by atomic mass
 
-For more details: [https://shangzhenyang.github.io/periodic-table/](https://shangzhenyang.github.io/periodic-table/)
+// Get compound
+getCompound("carbon dioxide"); // by name
+getCompound("CO2"); // by formula with proper case
+getCompound("c o2"); // by formula with space
+getCompound("二氧化碳"); // by Chinese name
 
-更多详情请访问：[https://shangzhenyang.github.io/periodic-table/](https://shangzhenyang.github.io/periodic-table/)
+// Check if the result is an error
+isErrorResult(getElement("abc"));
+```
+
+## Returned Data
+```javascript
+// Element
+{
+    "mass": 15.999,
+    "mole": 1,
+    "name": "Oxygen",
+    "name_chs": "氧",
+    "name_cht": "氧",
+    "number": 8,
+    "symbol": "O"
+}
+
+// Compound
+{
+    "mass": 44.009,
+    "symbol": "CO2"
+}
+
+// Error
+{
+    "error": "notFound",
+    "message": "Element not found."
+}
+```
+
+`getElement` returns either an element or an error.
+
+`getCompound` returns either a compound, an element, or an error.
+
+## License
+
+[MIT](LICENSE).
