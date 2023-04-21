@@ -259,10 +259,12 @@ function getCompound(searchTerm: string, multipler = 1): AllResult {
                 mass += record[0].mass;
             }
         }
-        return {
-            mass: mass,
-            symbol: symbol
-        } as CompoundResult;
+        if (mass > 0 && symbol) {
+            return {
+                mass: mass,
+                symbol: symbol
+            } as CompoundResult;
+        }
     }
     return {
         error: "notFound",
