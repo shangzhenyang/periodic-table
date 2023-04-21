@@ -5,7 +5,7 @@
  * https://github.com/shangzhenyang/periodic-table
  */
 
-import elements from "./elements.json";
+import elementsData from "./elements.json";
 
 interface ErrorResult {
     error: string;
@@ -29,10 +29,17 @@ interface CompoundResult {
 
 type AllResult = ErrorResult | ElementResult | CompoundResult;
 
+const elements = elementsData.map((element, index) => {
+    return {
+        ...element,
+        number: index + 1
+    };
+});
+
 function getElement(searchTerm: string): ElementResult | ErrorResult {
     searchTerm = searchTerm.toLowerCase().trim();
     let mole = 1;
-    for (let i = 0; i < elements.length; i++) {
+    for (const element of elements) {
         if (searchTerm.substring(0, 4) === "mono") {
             mole = 1;
             searchTerm = searchTerm.replace("mono", "");
@@ -110,22 +117,22 @@ function getElement(searchTerm: string): ElementResult | ErrorResult {
         }
         if (
             (searchTerm.length <= 2 &&
-                elements[i].symbol.toLowerCase() === searchTerm) ||
+                element.symbol.toLowerCase() === searchTerm) ||
             (searchTerm.length > 2 &&
-                elements[i].name.toLowerCase().includes(searchTerm)) ||
-            elements[i].name_chs === searchTerm ||
-            elements[i].name_cht === searchTerm ||
-            i + 1 === parseInt(searchTerm) ||
-            Math.round(elements[i].mass) === Math.round(parseInt(searchTerm))
+                element.name.toLowerCase().includes(searchTerm)) ||
+            element.name_chs === searchTerm ||
+            element.name_cht === searchTerm ||
+            element.number === parseInt(searchTerm) ||
+            Math.round(element.mass) === Math.round(parseInt(searchTerm))
         ) {
             return {
-                mass: elements[i].mass * mole,
+                mass: element.mass * mole,
                 mole: mole,
-                name: elements[i].name,
-                name_chs: elements[i].name_chs,
-                name_cht: elements[i].name_cht,
-                number: i + 1,
-                symbol: elements[i].symbol
+                name: element.name,
+                name_chs: element.name_chs,
+                name_cht: element.name_cht,
+                number: element.number,
+                symbol: element.symbol
             } as ElementResult;
         }
     }
@@ -263,8 +270,9 @@ function getCompound(searchTerm: string, multipler = 1): AllResult {
     } as ErrorResult;
 }
 
-export function isErrorResult(result: AllResult): result is ErrorResult {
+function isErrorResult(result: AllResult): result is ErrorResult {
     return !!(result as ErrorResult).error;
 }
 
-export { elements, getCompound, getElement };
+export { elements, getCompound, getElement, isErrorResult };
+export type { AllResult, CompoundResult, ElementResult, ErrorResult };
