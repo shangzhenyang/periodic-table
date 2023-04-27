@@ -29,14 +29,7 @@ interface CompoundResult {
 
 type AllResult = ErrorResult | ElementResult | CompoundResult;
 
-const elements = elementsData.map((element, index) => {
-    return {
-        ...element,
-        number: index + 1
-    };
-});
-
-const prefixes = {
+const PREFIXES = {
     "mono": 1,
     "di": 2,
     "tri": 3,
@@ -59,15 +52,22 @@ const prefixes = {
     "八": 8,
     "九": 9,
     "十": 10
-};
+} as const;
+
+const elements = elementsData.map((element, index) => {
+    return {
+        ...element,
+        number: index + 1
+    };
+});
 
 function getElement(searchTerm: string): ElementResult | ErrorResult {
     searchTerm = searchTerm.toLowerCase().trim();
     let mole = 1;
     for (const element of elements) {
-        for (const prefix in prefixes) {
+        for (const prefix in PREFIXES) {
             if (searchTerm.startsWith(prefix)) {
-                mole = prefixes[prefix as keyof typeof prefixes];
+                mole = PREFIXES[prefix as keyof typeof PREFIXES];
                 searchTerm = searchTerm.replace(prefix, "");
                 break;
             }
