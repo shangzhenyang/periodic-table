@@ -36,76 +36,41 @@ const elements = elementsData.map((element, index) => {
     };
 });
 
+const prefixes = {
+    "mono": 1,
+    "di": 2,
+    "tri": 3,
+    "tetra": 4,
+    "penta": 5,
+    "hexa": 6,
+    "hepta": 7,
+    "octa": 8,
+    "nona": 9,
+    "deca": 10,
+    "undeca": 11,
+    "dodeca": 12,
+    "一": 1,
+    "二": 2,
+    "三": 3,
+    "四": 4,
+    "五": 5,
+    "六": 6,
+    "七": 7,
+    "八": 8,
+    "九": 9,
+    "十": 10
+};
+
 function getElement(searchTerm: string): ElementResult | ErrorResult {
     searchTerm = searchTerm.toLowerCase().trim();
     let mole = 1;
     for (const element of elements) {
-        if (searchTerm.substring(0, 4) === "mono") {
-            mole = 1;
-            searchTerm = searchTerm.replace("mono", "");
-        } else if (searchTerm.substring(0, 2) === "di") {
-            mole = 2;
-            searchTerm = searchTerm.replace("di", "");
-        } else if (searchTerm.substring(0, 3) === "tri") {
-            mole = 3;
-            searchTerm = searchTerm.replace("tri", "");
-        } else if (searchTerm.substring(0, 5) === "tetra") {
-            mole = 4;
-            searchTerm = searchTerm.replace("tetra", "");
-        } else if (searchTerm.substring(0, 5) === "penta") {
-            mole = 5;
-            searchTerm = searchTerm.replace("penta", "");
-        } else if (searchTerm.substring(0, 4) === "hexa") {
-            mole = 6;
-            searchTerm = searchTerm.replace("hexa", "");
-        } else if (searchTerm.substring(0, 5) === "hepta") {
-            mole = 7;
-            searchTerm = searchTerm.replace("hepta", "");
-        } else if (searchTerm.substring(0, 4) === "octa") {
-            mole = 8;
-            searchTerm = searchTerm.replace("octa", "");
-        } else if (searchTerm.substring(0, 4) === "nona") {
-            mole = 9;
-            searchTerm = searchTerm.replace("nona", "");
-        } else if (searchTerm.substring(0, 4) === "deca") {
-            mole = 10;
-            searchTerm = searchTerm.replace("deca", "");
-        } else if (searchTerm.substring(0, 6) === "undeca") {
-            mole = 11;
-            searchTerm = searchTerm.replace("undeca", "");
-        } else if (searchTerm.substring(0, 6) === "dodeca") {
-            mole = 12;
-            searchTerm = searchTerm.replace("dodeca", "");
-        } else if (searchTerm[0] === "一") {
-            mole = 1;
-            searchTerm = searchTerm.replace("一", "");
-        } else if (searchTerm[0] === "二") {
-            mole = 2;
-            searchTerm = searchTerm.replace("二", "");
-        } else if (searchTerm[0] === "三") {
-            mole = 3;
-            searchTerm = searchTerm.replace("三", "");
-        } else if (searchTerm[0] === "四") {
-            mole = 4;
-            searchTerm = searchTerm.replace("四", "");
-        } else if (searchTerm[0] === "五") {
-            mole = 5;
-            searchTerm = searchTerm.replace("五", "");
-        } else if (searchTerm[0] === "六") {
-            mole = 6;
-            searchTerm = searchTerm.replace("六", "");
-        } else if (searchTerm[0] === "七") {
-            mole = 7;
-            searchTerm = searchTerm.replace("七", "");
-        } else if (searchTerm[0] === "八") {
-            mole = 8;
-            searchTerm = searchTerm.replace("八", "");
-        } else if (searchTerm[0] === "九") {
-            mole = 9;
-            searchTerm = searchTerm.replace("九", "");
-        } else if (searchTerm[0] === "十") {
-            mole = 10;
-            searchTerm = searchTerm.replace("十", "");
+        for (const prefix in prefixes) {
+            if (searchTerm.startsWith(prefix)) {
+                mole = prefixes[prefix as keyof typeof prefixes];
+                searchTerm = searchTerm.replace(prefix, "");
+                break;
+            }
         }
         const numRegExp = /\d+/;
         if (numRegExp.test(searchTerm)) {

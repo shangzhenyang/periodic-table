@@ -41,7 +41,7 @@ isErrorResult(getElement("abc")); // true
 
 ## Returned Data
 ```javascript
-// Element
+// ElementResult
 {
     "mass": 15.999,
     "mole": 1,
@@ -52,22 +52,22 @@ isErrorResult(getElement("abc")); // true
     "symbol": "O"
 }
 
-// Compound
+// CompoundResult
 {
     "mass": 44.009,
     "symbol": "CO2"
 }
 
-// Error
+// ErrorResult
 {
     "error": "notFound",
     "message": "Element not found."
 }
 ```
 
-`getElement` returns either an element or an error.
+`getElement` returns either an `ElementResult` or an `ErrorResult`.
 
-`getCompound` returns either a compound, an element, or an error.
+`getCompound` returns either a `CompoundResult`, an `ElementResult`, or an `ErrorResult`.
 
 ## License
 
