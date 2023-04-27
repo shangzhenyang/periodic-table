@@ -54,6 +54,7 @@ const PREFIXES = {
     "十": 10
 } as const;
 
+// To avoid representation exposure, do not use this in the internal code.
 const elements = elementsData.map((element, index) => {
     return {
         ...element,
@@ -64,7 +65,11 @@ const elements = elementsData.map((element, index) => {
 function getElement(searchTerm: string): ElementResult | ErrorResult {
     searchTerm = searchTerm.toLowerCase().trim();
     let mole = 1;
-    for (const element of elements) {
+    for (let i = 0; i < elementsData.length; i++) {
+        const element = {
+            ...elementsData[i],
+            number: i + 1
+        };
         for (const prefix in PREFIXES) {
             if (searchTerm.startsWith(prefix)) {
                 mole = PREFIXES[prefix as keyof typeof PREFIXES];
